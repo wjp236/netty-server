@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="error">
+    <Properties>
+        <Property name="p_name">netty-server</Property>
+        <Property name="log_home">../logs</Property>
+        <Property name="log_charset">UTF-8</Property>
+        <Property name="log_dir">${log_home}/%d{yyyyMMdd}</Property>
+        <Property name="log_msg">-|[%X{requestId}]|[%X{hostName}]|[%d{yyyyMMdd HH:mm:ss.SSS}]|[%thread]|[%-5p]|[%c-%L] ||| %m%n</Property>
+    </Properties>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="busiess"/>
+            <AppenderRef ref="error_log"/>
+        </Root>
+        <Logger name="org.springframework" level="info" additivity="false"/>
+        <Logger name="net.sf.ezmorph.bean.BeanMorpher" level="error" additivity="false"/>
+        <Logger name="net.sf.json.JSONObject" level="error" additivity="false"/>
+        <Logger name="org.apache.zookeeper" level="error" additivity="false"/>
+        <Logger name="com.alibaba.dubbo.remoting" level="error" additivity="false"/>
+        <Logger name="com.alibaba.dubbo.monitor" level="error" additivity="false"/>
+        <Logger name="org.apache.commons" level="error" additivity="false"/>
+    </Loggers>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout charset="${log_charset}" pattern="${log_msg}"/>
+        </Console>
+        <RollingRandomAccessFile name="busiess" fileName="${log_home}/${p_name}.log"
+                                 filePattern="${log_dir}/${p_name}.log.%-d{yyyy-MM-dd-HH}_%i">
+            <PatternLayout charset="${log_charset}" pattern="${log_msg}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+                <TimeBasedTriggeringPolicy interval="2" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="error_log" fileName="${log_home}/error_${p_name}.log"
+                                 filePattern="${log_dir}/error_${p_name}.log.%-d{yyyy-MM-dd}_%i">
+            <ThresholdFilter level="error" onMatch="ACCEPT"/>
+            <PatternLayout charset="${log_charset}" pattern="${log_msg}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+</Configuration>
