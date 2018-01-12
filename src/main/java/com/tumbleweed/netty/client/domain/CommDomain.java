@@ -1,12 +1,14 @@
-package com.tumbleweed.netty.domain;
+package com.tumbleweed.netty.client.domain;
 
+import com.tumbleweed.netty.core.domain.DomainBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CommDomain extends DomainBase {
 
-	private static final Logger logger = LoggerFactory.getLogger(CommDomain.class);
-
+	static final Logger logger = LoggerFactory.getLogger(CommDomain.class);
+	
+	
 	/**
 	 * 错误码
 	 */

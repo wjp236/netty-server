@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="springContextHelper" class="com.tumbleweed.netty.core.bean.BootstrapContextHelper"></bean>
+	<bean id="contextManager" class="com.tumbleweed.netty.core.context.ContextManager"></bean>
+    <bean id="appBeanContext" class="com.tumbleweed.netty.client.context.AppBeanContext"></bean>
+</beans>

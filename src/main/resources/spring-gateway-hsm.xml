@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="hsmAppBean" class="com.tumbleweed.netty.client.bean.HsmAppBean"
+		init-method="startService" destroy-method="stopService">
+		<property name="ip">
+			<value>172.16.254.227</value>
+		</property>
+		<property name="port">
+			<value>1818</value>
+		</property>
+	</bean>
+	<!--
+	<bean id="heartbeatQuartz" class="com.tumbleweed.netty.client.quartz.HeartbeatQuartz"
+          scope="singleton">
+	</bean>
+	<bean id="heartbeatBean"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="heartbeatQuartz" />
+		</property>
+		<property name="targetMethod">
+			<value>execute</value>
+		</property>
+		<property name="concurrent">
+			<value>false</value>
+		</property>
+	</bean>
+	<bean id="heartbeatTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
+		scope="prototype">
+		<property name="jobDetail">
+			<ref bean="heartbeatBean" />
+		</property>
+		<property name="cronExpression">
+			<value>#{ptsProps['quartz.hsmHeartbeatTrigger.cronExpression']}</value>
+		</property>
+	</bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref local="heartbeatTrigger" />
+			</list>
+		</property>
+	</bean>
+	-->
+</beans>

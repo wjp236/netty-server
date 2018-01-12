@@ -1,7 +1,6 @@
 package com.tumbleweed.netty.core.context;
 
 import com.tumbleweed.netty.core.constants.ConstantsBase;
-import com.tumbleweed.io.context.EnvVar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

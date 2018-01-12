@@ -10,7 +10,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class StringUtils {
-	static final Logger logger = LoggerFactory.getLogger(StringUtils.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(StringUtils.class);
 
 	public static boolean isNullOrEmpty(String value) {
 		if (value == null)

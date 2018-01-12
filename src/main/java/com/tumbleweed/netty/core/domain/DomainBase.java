@@ -1,4 +1,4 @@
-package com.tumbleweed.netty.domain;
+package com.tumbleweed.netty.core.domain;
 
 import com.tumbleweed.netty.core.constants.IoConstants;
 import com.tumbleweed.netty.core.context.EnvVar;

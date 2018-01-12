@@ -9,7 +9,7 @@
         <Property name="log_msg">-|[%X{requestId}]|[%X{hostName}]|[%d{yyyyMMdd HH:mm:ss.SSS}]|[%thread]|[%-5p]|[%c-%L] ||| %m%n</Property>
     </Properties>
     <Loggers>
-        <Root level="info">
+        <Root level="debug">
             <AppenderRef ref="console"/>
             <AppenderRef ref="busiess"/>
             <AppenderRef ref="error_log"/>

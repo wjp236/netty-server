@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-autowire="byName">
+
+    <bean id="mapClearQuartz" class="com.tumbleweed.netty.client.quartz.MapClearQuartz"
+		scope="singleton">
+	</bean>
+	<bean id="mapClearBean"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="mapClearQuartz" />
+		</property>
+		<property name="targetMethod">
+			<value>execute</value>
+		</property>
+		<property name="concurrent">
+			<value>false</value>
+		</property>
+	</bean>
+	<bean id="mapClearTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
+		scope="prototype">
+		<property name="jobDetail">
+			<ref bean="mapClearBean" />
+		</property>
+		<property name="cronExpression">
+			<value>5 0/2 * * * ?</value>
+		</property>
+	</bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref local="mapClearTrigger" />
+			</list>
+		</property>
+	</bean>
+</beans>

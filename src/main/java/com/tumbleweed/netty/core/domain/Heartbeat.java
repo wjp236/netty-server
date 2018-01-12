@@ -1,4 +1,4 @@
-package com.tumbleweed.netty.domain;
+package com.tumbleweed.netty.core.domain;
 
  
 public class Heartbeat extends DomainBase{
