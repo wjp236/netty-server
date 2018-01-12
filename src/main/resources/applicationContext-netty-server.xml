@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- 配置pos网关 -->
+    <bean id="pos" class="com.tumbleweed.netty.server.bean.PosAppBean"
+          init-method="startService" destroy-method="stopService">
+        <property name="port">
+            <value>6665</value>
+        </property>
+        <property name="handlers">
+            <list>
+                <value>com.lemon.gateway.pos.encoder.PosServerEncoder</value>
+                <value>com.lemon.gateway.pos.handler.PosServerHandler</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
