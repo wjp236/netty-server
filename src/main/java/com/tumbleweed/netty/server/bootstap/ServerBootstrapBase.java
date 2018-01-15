@@ -9,8 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public abstract class ServerBootstrapBase extends BootstrapBase {
-	static final Logger logger = LoggerFactory
-			.getLogger(ServerBootstrapBase.class);
+
+	static final Logger logger = LoggerFactory.getLogger(ServerBootstrapBase.class);
 
 	protected EventLoopGroup bossServerGroup;
 

@@ -46,8 +46,7 @@ public class PosServerHandler extends SimpleChannelInboundHandler<ByteBuf> {
 		logger.warn("======pos网关处理器收到pos上送的8583数据，开始调用交易系统，将由交易系统进行处理，等待交易系统返回......");
 		byte[] packets = new byte[in.readableBytes()];
 		in.readBytes(packets);
-		PosAdapter posAdapter = (PosAdapter) BootstrapContextHelper
-				.getBean("posAdapter");
+		PosAdapter posAdapter = (PosAdapter) BootstrapContextHelper.getBean("posAdapter");
 		requestMap.put(IoConstants.POS_ORIGINAL_PACKETS, packets);
 		requestMap.put(IoConstants.SUFFIX, suffix);
 		

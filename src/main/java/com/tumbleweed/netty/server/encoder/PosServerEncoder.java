@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 import java.io.OutputStream;
 
 public class PosServerEncoder extends MessageToByteEncoder<byte[]> {
-	private static final Logger logger = LoggerFactory
-			.getLogger(PosServerEncoder.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(PosServerEncoder.class);
 
 	private String suffix;
 

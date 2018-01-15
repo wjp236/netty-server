@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 public class PosServerDecoder extends ByteToMessageDecoder {
-	private static final Logger logger = LoggerFactory
-			.getLogger(PosServerDecoder.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(PosServerDecoder.class);
 	
 	private String suffix;
 
